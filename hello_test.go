@@ -16,6 +16,9 @@ func TestHello(t *testing.T) {
 	})
 }
 
+// use testing.TB when using helper functions in tests, creates interface for testing.T testing.B
+// t.Helper() identifies this function as a helper
+// so if it fails, will point to invoked function not the helper function
 func assertCorrectMessage(t testing.TB, got, want string) {
 	t.Helper()
 	if got != want {
