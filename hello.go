@@ -1,31 +1,47 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-const englishHelloPrefix = "Hello, "
-const spanishHelloPrefix = "Hola, "
-const frenchHelloPrefix = "Bonjour, "
+const (
+	spanish            = "Spanish"
+	french             = "French"
+	englishHelloPrefix = "Hello, "
+	spanishHelloPrefix = "Hola, "
+	frenchHelloPrefix  = "Bonjour, "
+)
 
 func Hello(name string, language string) string {
 	if name == "" {
+		name = greetingSuffix(language)
+	}
+	return greetingPrefix(language) + name
+}
+
+// the second parenthesis is the named return value
+func greetingPrefix(language string) (prefix string) {
+	switch language {
+	case spanish:
+		prefix = spanishHelloPrefix
+	case french:
+		prefix = frenchHelloPrefix
+	default:
+		prefix = englishHelloPrefix
+	}
+	return
+}
+
+func greetingSuffix(language string) (name string) {
+	switch language {
+	case spanish:
+		name = "Mundo"
+	case french:
+		name = "Monde"
+	default:
 		name = "World"
 	}
-	// declare variable :=
-	prefix := englishHelloPrefix
-
-	switch language {
-	case "Spanish":
-		if name == "World" {
-			name = "Mundo"
-		}
-		prefix = spanishHelloPrefix
-	case "French":
-		if name == "World" {
-			name = "Monde"
-		}
-		prefix = frenchHelloPrefix
-	}
-	return prefix + name
+	return
 }
 
 func main() {
