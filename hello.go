@@ -12,6 +12,7 @@ const (
 	frenchHelloPrefix  = "Bonjour, "
 )
 
+// Capitalized functions names mean it is a public function
 func Hello(name string, language string) string {
 	if name == "" {
 		name = greetingSuffix(language)
@@ -19,6 +20,7 @@ func Hello(name string, language string) string {
 	return greetingPrefix(language) + name
 }
 
+// Uncapitalized function names mean it is private function
 // the second parenthesis is the named return value
 func greetingPrefix(language string) (prefix string) {
 	switch language {
