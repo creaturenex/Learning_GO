@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -39,7 +38,6 @@ func TestHello(t *testing.T) {
 	t.Run("in French, when an empty string is supplied", func(t *testing.T) {
 		got := Hello("", "French")
 		want := "Bonjour, Monde"
-		fmt.Println(got)
 		assertCorrectMessage(t, got, want)
 	})
 }
