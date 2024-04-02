@@ -7,14 +7,14 @@ import (
 
 func TestCount(t *testing.T) {
 	actual := strings.Count("Hello, World", "")
-	expected := 12
+	expected := 12 + 1
 
 	if actual != expected {
 		t.Errorf("expected %d to be %d", actual, expected)
 	}
 }
 func TestCount1arg(t *testing.T) {
-	actual := strings.Count("Hello, World")
+	actual := strings.Count("Hello, World", "")
 	expected := 13
 
 	if actual != expected {
